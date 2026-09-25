@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/download",
+      "dest": "/bonetech-chat-widget.html",
+      "headers": {
+        "Content-Disposition": "attachment; filename=\"bonetech-chat-widget.html\""
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

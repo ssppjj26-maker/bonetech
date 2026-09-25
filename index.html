@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bonetech Medisys | Precision Orthopedic & Spine Solutions</title>
+  <meta name="description" content="Bonetech Medisys delivers precision-engineered orthopedic implant solutions across trauma, hip, spine, and arthroscopy." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+
+  <style>
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Adelle Sans Devanagari Regular', 'Adelle Sans Devanagari', 'Adelle Sans', system-ui, -apple-system, sans-serif;
+      background-color: #F8FAFD;
+      color: #0F172A;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Showcase Device Bar (For testing & demonstration) */
+    .showcase-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: #070D19;
+      color: #ffffff;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 102, 255, 0.25);
+      font-size: 0.85rem;
+    }
+
+    .showcase-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .showcase-badge {
+      background: #0066FF;
+      color: #ffffff;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .showcase-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .view-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .view-btn.active {
+      background: #0066FF;
+      color: #ffffff;
+      border-color: #0066FF;
+      box-shadow: 0 0 14px rgba(0, 102, 255, 0.4);
+    }
+
+    .btn-code {
+      background: linear-gradient(135deg, #00D2FF 0%, #0066FF 100%);
+      color: #ffffff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.8rem;
+      box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
+      transition: all 0.2s ease;
+      margin-left: 12px;
+      font-family: inherit;
+    }
+
+    .btn-code:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 102, 255, 0.45);
+    }
+
+    /* Device Preview Frame Wrapper */
+    .viewport-frame-wrapper {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      background: #EBF1F8;
+      padding: 0;
+    }
+
+    .viewport-frame-wrapper.tablet-view {
+      padding: 24px 0;
+    }
+
+    .viewport-frame-wrapper.tablet-view .site-container {
+      max-width: 768px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      overflow: hidden;
+      border: 4px solid #1E293B;
+    }
+
+    .viewport-frame-wrapper.mobile-view {
+      padding: 20px 0;
+    }
+
+    .viewport-frame-wrapper.mobile-view .site-container {
+      max-width: 390px;
+      border-radius: 36px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+      overflow: hidden;
+      border: 6px solid #0F172A;
+    }
+
+    .site-container {
+      width: 100%;
+      background: #ffffff;
+      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    /* Website Header / Navbar */
+    .site-navbar {
+      background: #ffffff;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #0A1128;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-icon-svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a:hover {
+      color: #0066FF;
+    }
+
+    .btn-contact {
+      background: #0066FF;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+    }
+
+    .btn-contact:hover {
+      background: #0052CC;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
+    }
+
+    /* Hero Section (Matching PDF Page 1) */
+    .hero-section {
+      padding: 32px 48px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #070D19 0%, #0B1326 60%, #0F1D38 100%);
+      border-radius: 32px;
+      padding: 64px 60px;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+      box-shadow: 0 24px 60px -15px rgba(7, 13, 25, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 102, 255, 0.18);
+      border: 1px solid rgba(0, 102, 255, 0.4);
+      color: #60A5FA;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, #FFFFFF 40%, #CBD5E1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-card p {
+      font-size: 1.05rem;
+      color: #94A3B8;
+      margin-bottom: 32px;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-btn {
+      background: #ffffff;
+      color: #0A1128;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-cta-btn:hover {
+      background: #F1F5F9;
+      transform: translateX(4px);
+    }
+
+    .hero-stats-row {
+      display: flex;
+      gap: 40px;
+      margin-top: 54px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-item p {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94A3B8;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      max-width: 420px;
+      filter: drop-shadow(0 20px 40px rgba(0, 102, 255, 0.35));
+      border-radius: 24px;
+      transform: rotate(-12deg);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-visual img:hover {
+      transform: rotate(-6deg) scale(1.03);
+    }
+
+    .nex-badge {
+      position: absolute;
+      bottom: -15px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* Section 2: "Advancing Movement, Advancing Life" */
+    .section-about {
+      padding: 72px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EBF3FF;
+      color: #0066FF;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #0A1128;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: #64748B;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .about-stat-box h4 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0A1128;
+      margin-bottom: 2px;
+    }
+
+    .about-stat-box p {
+      font-size: 0.82rem;
+      color: #64748B;
+    }
+
+    .vision-mission-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .vm-card {
+      background: #F1F6FD;
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(0, 102, 255, 0.1);
+    }
+
+    .vm-card-icon {
+      width: 36px;
+      height: 36px;
+      background: #0066FF;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .vm-card h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0A1128;
+      margin-bottom: 8px;
+    }
+
+    .vm-card p {
+      font-size: 0.84rem;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    /* Product Solutions Grid (Matching PDF Page 2) */
+    .section-solutions {
+      padding: 60px 48px;
+      background: #F8FAFD;
+    }
+
+    .solutions-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px auto;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .sol-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 24px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sol-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(0, 102, 255, 0.14);
+      border-color: rgba(0, 102, 255, 0.3);
+    }
+
+    .sol-card-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+    }
+
+    .sol-card h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0A1128;
+      letter-spacing: -0.01em;
+    }
+
+    .sol-arrow {
+      width: 32px;
+      height: 32px;
+      background: #F1F5F9;
+      color: #0A1128;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .sol-card:hover .sol-arrow {
+      background: #0066FF;
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    .sol-card p {
+      font-size: 0.78rem;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* Testimonials Section (Matching PDF Page 4) */
+    .section-testimonials {
+      padding: 64px 48px;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .test-card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .test-card p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .test-avatar {
+      width: 40px;
+      height: 40px;
+      background: #0A1128;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .test-author h5 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #0A1128;
+    }
+
+    .test-author span {
+      font-size: 0.76rem;
+      color: #64748B;
+    }
+
+    /* Footer Section */
+    .site-footer {
+      background: #070D19;
+      color: #ffffff;
+      padding: 60px 48px 30px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: #0066FF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      color: #64748B;
+      font-size: 0.78rem;
+    }
+
+    /* Modal for Embed Code */
+    .code-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 13, 25, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .code-modal {
+      background: #0B132B;
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      padding: 28px;
+      position: relative;
+    }
+
+    .code-modal h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .code-modal p {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      margin-bottom: 16px;
+    }
+
+    .code-box {
+      background: #070D19;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #E2E8F0;
+      overflow-x: auto;
+      max-height: 280px;
+      white-space: pre;
+      margin-bottom: 16px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn-copy {
+      background: #0066FF;
+      color: #ffffff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-close-modal {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* Responsive Queries for Demo Page */
+    @media (max-width: 900px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+      }
+      .section-about {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+      }
+      .solutions-grid, .test-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .site-navbar {
+        padding: 16px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Showcase Device Bar -->
+  <header class="showcase-topbar">
+    <div class="showcase-brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00D2FF" stroke-width="2"/>
+        <path d="M2 17L12 22L22 17" stroke="#0066FF" stroke-width="2"/>
+        <path d="M2 12L12 17L22 12" stroke="#0066FF" stroke-width="2"/>
+      </svg>
+      <span>Bonetech Medisys • AI Chatbot Integration</span>
+      <span class="showcase-badge">Desktop, Tablet & Mobile Ready</span>
+    </div>
+    
+    <div class="showcase-controls">
+      <button class="view-btn active" id="btnDesktopView" onclick="setDeviceView('desktop')">🖥️ Desktop</button>
+      <button class="view-btn" id="btnTabletView" onclick="setDeviceView('tablet')">💻 Tablet (768px)</button>
+      <button class="view-btn" id="btnMobileView" onclick="setDeviceView('mobile')">📱 Mobile (390px)</button>
+      <button class="btn-code" onclick="openCodeModal()">📋 Get Embed Code</button>
+    </div>
+  </header>
+
+  <!-- Viewport Frame Wrapper -->
+  <div class="viewport-frame-wrapper" id="viewportWrapper">
+    <div class="site-container">
+      
+      <!-- Website Navigation Bar -->
+      <nav class="site-navbar">
+        <a href="#" class="site-logo">
+          <!-- Medical Atom Cross Logo -->
+          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="10" fill="#0066FF"/>
+            <path d="M18 8V28M8 18H28" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="4" fill="#00D2FF"/>
+            <circle cx="18" cy="10" r="2" fill="#ffffff"/>
+            <circle cx="18" cy="26" r="2" fill="#ffffff"/>
+            <circle cx="10" cy="18" r="2" fill="#ffffff"/>
+            <circle cx="26" cy="18" r="2" fill="#ffffff"/>
+          </svg>
+          <span>Bonetech</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">Company ▾</a></li>
+          <li><a href="#solutions">Products ▾</a></li>
+          <li><a href="#inquiry">Inquiry</a></li>
+          <li><a href="#resources">Resources ▾</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+
+        <a href="#contact" class="btn-contact">CONTACT US →</a>
+      </nav>
+
+      <!-- Hero Section (Page 1 in PDF) -->
+      <section class="hero-section">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="hero-badge-pill">● NEOCURVE™ TECHNOLOGY</span>
+            <h1>FUTURE OF FUSION</h1>
+            <p>NEOCURVE™ Monoaxial & Polyaxial versatile implant geometry for precise spinal alignment and clinical excellence.</p>
+            <a href="#solutions" class="hero-cta-btn">
+              <span>EXPLORE SOLUTIONS</span>
+              <span>→</span>
+            </a>
+
+            <div class="hero-stats-row">
+              <div class="stat-item">
+                <h3>14K+</h3>
+                <p>Implant Placements</p>
+              </div>
+              <div class="stat-item">
+                <h3>300+</h3>
+                <p>Surgeons Network</p>
+              </div>
+              <div class="stat-item">
+                <h3>20+</h3>
+                <p>Years Experience</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img src="assets/implant.jpg" alt="Bonetech NEOCURVE Spine Implant" />
+            <div class="nex-badge">
+              <span style="color:#00D2FF;">⚡</span>
+              <span>NEXPINE SYSTEM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section: "Advancing Movement, Advancing Life" (Page 1 in PDF) -->
+      <section class="section-about" id="about">
+        <div class="about-text">
+          <span class="section-pill">● WHO WE ARE</span>
+          <h2 class="section-title">Advancing Movement,<br>Advancing Life</h2>
+          <p class="section-desc">
+            Bonetech Medisys delivers precision-engineered orthopedic implant solutions across trauma, hip, spine, musculoskeletal solutions, and arthroscopy. Driven by innovation, clinical reliability, and global quality standards, we empower surgeons with solutions designed to restore mobility, enhance outcomes, and advance patient care.
+          </p>
+
+          <div class="about-stats-grid">
+            <div class="about-stat-box">
+              <h4>5 Million+</h4>
+              <p>Implants Deployed Globally</p>
+            </div>
+            <div class="about-stat-box">
+              <h4>300+</h4>
+              <p>Global Distributors</p>
+            </div>
+            <div class="about-stat-box">
+              <h4>40+</h4>
+              <p>Countries Presence</p>
+            </div>
+            <div class="about-stat-box">
+              <h4>200+</h4>
+              <p>Trade Shows Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vision-mission-cards">
+          <div class="vm-card">
+            <div class="vm-card-icon">👁️</div>
+            <h5>Our Vision</h5>
+            <p>To shape the next generation of orthopedic intervention through clinically superior implant systems designed for better movement and better lives.</p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-card-icon">🎯</div>
+            <h5>Our Mission</h5>
+            <p>To create trusted orthopedic technologies that enhance surgical performance and improve patient recovery across global healthcare systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solutions / Products Section (Page 2 in PDF) -->
+      <section class="section-solutions" id="solutions">
+        <div class="solutions-header">
+          <span class="section-pill">● GLOBAL STANDARDS IN ORTHOPEDICS</span>
+          <h2 class="section-title">Engineered for Human Performance.</h2>
+          <p style="color: #64748B;">Bonetech Medisys delivers a comprehensive suite of orthopedic solutions, from advanced trauma hardware to precision spine systems.</p>
+        </div>
+
+        <div class="solutions-grid">
+          <div class="sol-card" onclick="triggerChatCategory('Trauma')">
+            <span class="section-pill" style="font-size:0.65rem;">TRAUMA HARDWARE</span>
+            <h4>TRAUMA</h4>
+            <p>Plates, Screws & Intramedullary Fixation</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+
+          <div class="sol-card" onclick="triggerChatCategory('Spine')">
+            <span class="section-pill" style="font-size:0.65rem;">SPINAL ALIGNMENT</span>
+            <h4>SPINE</h4>
+            <p>NEOCURVE™ & Cervical Fusion Systems</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+
+          <div class="sol-card" onclick="triggerChatCategory('Sports Medicine')">
+            <span class="section-pill" style="font-size:0.65rem;">ARTHROSCOPY</span>
+            <h4>SPORTS MEDICINE</h4>
+            <p>Suture Anchors & Ligament Repair</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+
+          <div class="sol-card" onclick="triggerChatCategory('Arthroplasty')">
+            <span class="section-pill" style="font-size:0.65rem;">JOINT REPLACEMENT</span>
+            <h4>HIP PROSTHESIS</h4>
+            <p>Total Hip Systems & Bipolar Implants</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+
+          <div class="sol-card" onclick="triggerChatCategory('External Fixator')">
+            <span class="section-pill" style="font-size:0.65rem;">OR RECONSTRUCTION</span>
+            <h4>EXTERNAL FIXATOR</h4>
+            <p>Advanced Clamps & Carbon Fiber Rods</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+
+          <div class="sol-card" onclick="triggerChatCategory('Power Tools')">
+            <span class="section-pill" style="font-size:0.65rem;">SURGICAL MOTORS</span>
+            <h4>POWER TOOLS</h4>
+            <p>Precision Surgical Drills & Saws</p>
+            <div class="sol-card-badge">
+              <span style="font-size:0.8rem; font-weight:700; color:#0066FF;">Explore Catalog</span>
+              <span class="sol-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section (Page 4 in PDF) -->
+      <section class="section-testimonials">
+        <div style="text-align: center; max-width: 500px; margin: 0 auto 36px auto;">
+          <span class="section-pill">● WHAT OUR CLIENTS SAY</span>
+          <h2 class="section-title">Trusted by Many, Loved by All</h2>
+          <p style="color: #64748B;">Our surgeons' success stories reflect our commitment to surgical excellence and patient care.</p>
+        </div>
+
+        <div class="test-grid">
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>"The precision of Bonetech's spine implants is unparalleled. The instrumentation is intuitive, and the clinical outcomes for my patients have significantly improved."</p>
+            <div class="test-author">
+              <div class="test-avatar">SJ</div>
+              <div>
+                <h5>Dr. Sarah Jenkins</h5>
+                <span>Orthopedic Spine Surgeon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>"In high-pressure trauma situations, you need tools you can trust. Bonetech's locking plates and nails provide the stability and ease of use that make a real difference in the OR."</p>
+            <div class="test-author">
+              <div class="test-avatar">RC</div>
+              <div>
+                <h5>Dr. Robert Chen</h5>
+                <span>Trauma Specialist</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-card">
+            <div class="stars">★★★★★</div>
+            <p>"After my total knee replacement using Bonetech systems, I was back on my feet faster than I ever expected. The quality of the implant has truly given me my life back."</p>
+            <div class="test-author">
+              <div class="test-avatar">MT</div>
+              <div>
+                <h5>Mark Thompson</h5>
+                <span>Knee Replacement Patient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer (Page 5 in PDF) -->
+      <footer class="site-footer" id="contact">
+        <div class="footer-top">
+          <div class="footer-col">
+            <div class="site-logo" style="color: #ffffff; margin-bottom: 14px;">
+              <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none">
+                <rect width="36" height="36" rx="10" fill="#0066FF"/>
+                <path d="M18 8V28M8 18H28" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="18" cy="18" r="4" fill="#00D2FF"/>
+              </svg>
+              <span>Bonetech Medisys</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 12px;">
+              Survey No. 18, B/h Hathijan Swaminarayan Mandir, Bonetech Road, Nr Getatnagar Village, Ahmedabad-Mahemdavad Highway, Ahmedabad-382445, Gujarat, India.
+            </p>
+            <p style="font-size: 0.82rem; color: #00D2FF;">📞 +91 95127 28416 | ✉️ info@bonetechmedisys.com</p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#solutions">Brochure</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Solutions</h5>
+            <ul>
+              <li><a href="#solutions">Trauma</a></li>
+              <li><a href="#solutions">Spine</a></li>
+              <li><a href="#solutions">Sports Medicine</a></li>
+              <li><a href="#solutions">Hip Prosthesis</a></li>
+              <li><a href="#solutions">External Fixator</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Connect & Legal</h5>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Quality Certifications</a></li>
+              <li><a href="#">FDA & CE Accreditations</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Bonetech Medisys Pvt. Ltd. All rights reserved.</p>
+          <p>ISO 13485:2016 Certified Orthopedic Manufacturer</p>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Embed Code Modal -->
+  <div class="code-modal-backdrop" id="codeModal">
+    <div class="code-modal">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D2FF" stroke-width="2">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        Ready-to-Use Chatbot Embed Code
+      </h3>
+      <p>Copy and paste this single snippet into your website before the closing <code>&lt;/body&gt;</code> tag:</p>
+
+      <pre class="code-box" id="embedCodeSnippet">&lt;!-- Google Font --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" /&gt;
+
+&lt;!-- n8n Chat CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" /&gt;
+
+&lt;!-- Chatbot Styles --&gt;
+&lt;style&gt;
+/* Bonetech Design System &amp; Chatbot Styles */
+...
+&lt;/style&gt;
+
+&lt;!-- n8n Chat Initialization --&gt;
+&lt;script type="module"&gt;
+  import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
+
+  createChat({
+    webhookUrl: "https://sampatel26.app.n8n.cloud/webhook/05a63753-4b8b-46be-a86f-77eee24cb1b0/chat",
+    mode: "window",
+    loadPreviousSession: true,
+    showWelcomeScreen: false,
+    defaultLanguage: "en",
+    initialMessages: ["Hi thire 👋"],
+    i18n: {
+      en: {
+        title: "Sweta Gupta",
+        subtitle: "Advancing Movement, Advancing Life",
+        inputPlaceholder: "Type your message here...",
+        footer: "Bonetech Medisys",
+        getStarted: "Start Chat",
+        closeButtonTooltip: "Close Chat"
+      }
+    }
+  });
+&lt;/script&gt;</pre>
+
+      <div class="modal-actions">
+        <button class="btn-close-modal" onclick="closeCodeModal()">Close</button>
+        <button class="btn-copy" id="copyBtn" onclick="copyEmbedCode()">Copy Snippet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+<!-- BONETECH MEDISYS AI CLINICAL CHATBOT (n8n Integration)            -->
+<!-- Responsive: Desktop, Tablet, and Mobile                           -->
+<!-- ================================================================= -->
+
+<!-- 1. Typography: Adelle Sans Devanagari Regular -->
+<!-- 2. Base n8n Chat Stylesheet -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<!-- 3. Bonetech Custom Medical Theme Stylesheet -->
+<style>
+  :root {
+    /* Brand Clinical Colors */
+    --bt-blue: #0066FF;
+    --bt-blue-hover: #0052CC;
+    --bt-dark-navy: #070D19;
+    --bt-slate: #0F172A;
+    --bt-surface: #F4F7FC;
+    --bt-border: #E2E8F0;
+    --bt-online-green: #10B981;
+
+    /* n8n Chat Component Overrides */
+    --chat--font-family: 'Adelle Sans Devanagari Regular', 'Adelle Sans Devanagari', 'Adelle Sans', system-ui, -apple-system, sans-serif;
+    --chat--color--primary: var(--bt-blue);
+    --chat--color--primary-shade-50: var(--bt-blue-hover);
+    --chat--color--secondary: var(--bt-blue);
+    --chat--color-dark: var(--bt-dark-navy);
+    --chat--color-light: var(--bt-surface);
+    --chat--border-radius: 18px;
+    --chat--transition-duration: 0.25s;
+
+    /* Desktop Window Geometry */
+    --chat--window--width: 410px;
+    --chat--window--height: 640px;
+    --chat--window--bottom: 24px;
+    --chat--window--right: 24px;
+    --chat--window--z-index: 999999;
+    --chat--window--border: 1px solid rgba(0, 102, 255, 0.15);
+    --chat--window--border-radius: 24px;
+
+    /* Header */
+    --chat--header--padding: 18px 20px;
+    --chat--header--background: linear-gradient(135deg, #070D19 0%, #0E1B36 55%, #004ECC 100%);
+    --chat--header--color: #f5ebeb;
+    --chat--heading--font-size: 1.1rem;
+
+    /* Message Bubbles */
+    --chat--message--font-size: 0.92rem;
+    --chat--message--padding: 13px 17px;
+    --chat--message--border-radius: 18px;
+    --chat--message-line-height: 1.55;
+    --chat--message--bot--background: #FFFFFF;
+    --chat--message--bot--color: var(--bt-slate);
+    --chat--message--bot--border: 1px solid var(--bt-border);
+    --chat--message--user--background: linear-gradient(135deg, #0066FF 0%, #004ECC 100%);
+    --chat--message--user--color: #FFFFFF;
+    --chat--message--user--border: none;
+
+    /* Floating Launcher Button */
+    --chat--toggle--size: 62px;
+    --chat--toggle--background: linear-gradient(135deg, #0066FF 0%, #004ECC 100%);
+    --chat--toggle--hover--background: linear-gradient(135deg, #0075FF 0%, #0056E0 100%);
+    --chat--toggle--color: #ffffff;
+
+    /* Input & Footer */
+    --chat--input--background: #ffffff;
+    --chat--input--padding: 10px 14px;
+    --chat--body--background: var(--bt-surface);
+    --chat--footer--background: #ffffff;
+    --chat--footer--border-top: 1px solid #E8EEF5;
+  }
+
+  /* --- Entire Design Font Style: Adelle Sans Devanagari Regular --- */
+  .chat-window-wrapper,
+  .chat-window-wrapper *,
+  .chat-window,
+  .chat-window *,
+  .chat-layout,
+  .chat-layout *,
+  .chat-header,
+  .chat-header *,
+  .chat-body,
+  .chat-body *,
+  .chat-footer,
+  .chat-footer *,
+  .chat-message,
+  .chat-message *,
+  .chat-inputs,
+  .chat-inputs *,
+  .chat-inputs textarea,
+  .chat-input-send-button,
+  .bonetech-teaser-pill,
+  .bonetech-teaser-pill *,
+  .bonetech-header-brand,
+  .bonetech-header-brand * {
+    font-family: 'Adelle Sans Devanagari Regular', 'Adelle Sans Devanagari', 'Adelle Sans', system-ui, -apple-system, sans-serif !important;
+  }
+
+  /* --- Launcher Button Pulse & Glow --- */
+  .chat-window-wrapper .chat-window-toggle {
+    box-shadow: 0 10px 25px -4px rgba(0, 102, 255, 0.45) !important;
+    position: relative !important;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease !important;
+    animation: bonetechPulse 3s infinite !important;
+  }
+
+  .chat-window-wrapper .chat-window-toggle:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 14px 30px -4px rgba(0, 102, 255, 0.6) !important;
+  }
+
+  @keyframes bonetechPulse {
+    0% {
+      box-shadow: 0 10px 25px -4px rgba(0, 102, 255, 0.45), 0 0 0 0 rgba(0, 102, 255, 0.4);
+    }
+
+    70% {
+      box-shadow: 0 10px 25px -4px rgba(0, 102, 255, 0.45), 0 0 0 14px rgba(0, 102, 255, 0);
+    }
+
+    100% {
+      box-shadow: 0 10px 25px -4px rgba(0, 102, 255, 0.45), 0 0 0 0 rgba(0, 102, 255, 0);
+    }
+  }
+
+  /* --- Unread Notification Badge --- */
+  .bonetech-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background: #10B981;
+    color: #ffffff;
+    border: 2.5px solid #ffffff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  }
+
+  /* --- Floating Teaser Pill --- */
+  .bonetech-teaser-pill {
+    position: absolute;
+    bottom: 12px;
+    right: 76px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 102, 255, 0.18);
+    border-radius: 30px;
+    padding: 8px 14px 8px 10px;
+    box-shadow: 0 12px 28px -6px rgba(11, 19, 43, 0.16), 0 0 0 1px rgba(0, 102, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    z-index: 999998;
+    transition: all 0.25s ease;
+    animation: teaserSlide 0.4s ease;
+  }
+
+  .bonetech-teaser-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -6px rgba(0, 102, 255, 0.22);
+  }
+
+  .bonetech-teaser-pill .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0066FF;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .bonetech-teaser-pill .title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.2;
+  }
+
+  .bonetech-teaser-pill .subtitle {
+    font-size: 0.72rem;
+    color: #0066FF;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bonetech-teaser-pill .subtitle::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #10B981;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .bonetech-teaser-pill .close-btn {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+  }
+
+  @keyframes teaserSlide {
+    from {
+      opacity: 0;
+      transform: translateX(15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* --- Chat Window Container --- */
+  .chat-window-wrapper .chat-window {
+    box-shadow: 0 28px 65px -12px rgba(7, 13, 25, 0.28), 0 0 0 1px rgba(0, 102, 255, 0.14) !important;
+    border: 1px solid rgba(0, 102, 255, 0.16) !important;
+    border-radius: 24px !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  /* --- Header Custom Clinical Layout --- */
+  .chat-layout .chat-header {
+    background: linear-gradient(135deg, #070D19 0%, #0E1B36 55%, #004ECC 100%) !important;
+    padding: 18px 20px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .bonetech-header-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .bonetech-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bonetech-avatar-wrap {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .bonetech-avatar-wrap .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0066FF;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+  }
+
+  .bonetech-avatar-wrap .avatar-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .bonetech-avatar-wrap .dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: #10B981;
+    border: 2px solid #070D19;
+    border-radius: 50%;
+  }
+
+  .bonetech-header-titles h1 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bonetech-header-titles .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: #00E5FF;
+    color: #070D19;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  .bonetech-header-titles p {
+    font-size: 0.76rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 3px 0 0 0 !important;
+  }
+
+  .bonetech-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 229, 255, 0.15);
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    color: #00E5FF;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .chat-layout .chat-header .chat-close-button {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .chat-layout .chat-header .chat-close-button:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* --- Messages Styling --- */
+  .chat-body {
+    background: #F4F7FC !important;
+  }
+
+  .chat-message-from-bot {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 18px 18px 18px 4px !important;
+    box-shadow: 0 4px 14px -2px rgba(11, 19, 43, 0.05) !important;
+    max-width: 88% !important;
+  }
+
+  .chat-message-from-user {
+    background: linear-gradient(135deg, #0066FF 0%, #004ECC 100%) !important;
+    color: #FFFFFF !important;
+    border-radius: 18px 18px 4px 18px !important;
+    max-width: 85% !important;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25) !important;
+  }
+
+  /* --- Modern Input Box & Send Button --- */
+  .chat-inputs {
+    background: #F8FAFD !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 6px 8px 6px 14px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .chat-inputs:focus-within {
+    border-color: #ffffff !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12) !important;
+  }
+
+  .chat-input-send-button {
+    background: #0066FF !important;
+    color: #FFFFFF !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3) !important;
+  }
+
+  .chat-input-send-button:hover:not(:disabled) {
+    background: #0052CC !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* ================================================================= */
+  /* RESPONSIVE SPECIFICATIONS: TABLET & MOBILE VIEWPORTS              */
+  /* ================================================================= */
+
+  /* TABLET (641px - 1024px) */
+  @media (max-width: 1024px) and (min-width: 641px) {
+    :root {
+      --chat--window--width: 390px;
+      --chat--window--height: 590px;
+      --chat--window--bottom: 20px;
+      --chat--window--right: 20px;
+    }
+  }
+
+  /* MOBILE (<= 640px) */
+  @media (max-width: 640px) {
+    :root {
+      --chat--window--bottom: 0px !important;
+      --chat--window--right: 0px !important;
+      --chat--window--width: 100vw !important;
+      --chat--window--height: 100dvh !important;
+      --chat--window--border-radius: 0px !important;
+      --chat--toggle--size: 58px;
+    }
+
+    .chat-window-wrapper {
+      bottom: 16px !important;
+      right: 16px !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+    }
+
+    /* Full-screen native app drawer on mobile */
+    .chat-window-wrapper .chat-window {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      max-width: 100vw !important;
+      max-height: 100dvh !important;
+      border-radius: 0 !important;
+      border: none !important;
+      margin: 0 !important;
+      z-index: 9999999 !important;
+    }
+
+    .bonetech-teaser-pill {
+      display: none !important;
+    }
+
+    .chat-layout .chat-header {
+      padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 14px 16px !important;
+    }
+
+    .chat-footer {
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+  }
+</style>
+
+<!-- 4. Chatbot Companion Script (Initializes Chat & Clinical Enhancements) -->
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  // Initialize n8n Chat with Bonetech Medisys Configuration
+  createChat({
+    webhookUrl: 'https://sampatel26.app.n8n.cloud/webhook/05a63753-4b8b-46be-a86f-77eee24cb1b0/chat',
+    target: '#n8n-chat',
+    mode: 'window',
+    loadPreviousSession: true,
+    showWelcomeScreen: false,
+    defaultLanguage: 'en',
+    initialMessages: [
+      "Hi there! 👋"
+    ],
+    i18n: {
+      en: {
+        title: "Sweta Gupta",
+        subtitle: "Advancing Movement, Advancing Life",
+        inputPlaceholder: "Type your message here...",
+        footer: "Bonetech Medisys • Precision Orthopedic Systems",
+        getStarted: "New Conversation",
+        closeButtonTooltip: "Close Chat"
+      }
+    }
+  });
+
+  // Attach Clinical UX Enhancements (Teaser Pill, Notification Badge, Quick Chips)
+  const timer = setInterval(() => {
+    const toggleBtn = document.querySelector('.chat-window-toggle');
+    const wrapper = document.querySelector('.chat-window-wrapper');
+
+    if (toggleBtn && wrapper) {
+      clearInterval(timer);
+
+      // Notification badge on launcher
+      if (!toggleBtn.querySelector('.bonetech-badge')) {
+        const badge = document.createElement('div');
+        badge.className = 'bonetech-badge';
+        badge.textContent = '1';
+        toggleBtn.appendChild(badge);
+      }
+
+      // Proactive Teaser Pill
+      if (!document.querySelector('.bonetech-teaser-pill')) {
+        const teaser = document.createElement('div');
+        teaser.className = 'bonetech-teaser-pill';
+        teaser.innerHTML = `
+          <div class="avatar">⚕️</div>
+          <div>
+            <div class="title">Need Orthopedic Help?</div>
+            <div class="subtitle">💬 Chat with Specialist</div>
+          </div>
+          <button class="close-btn" title="Dismiss">&times;</button>
+        `;
+        teaser.addEventListener('click', (e) => {
+          if (e.target.closest('.close-btn')) {
+            e.stopPropagation();
+            teaser.style.display = 'none';
+            return;
+          }
+          toggleBtn.click();
+          teaser.style.display = 'none';
+        });
+        wrapper.appendChild(teaser);
+      }
+
+      // Observer to inject Header when opened
+      const observer = new MutationObserver(() => {
+        const chatWindow = wrapper.querySelector('.chat-window');
+        const teaser = document.querySelector('.bonetech-teaser-pill');
+        const badge = document.querySelector('.bonetech-badge');
+
+        if (chatWindow && chatWindow.style.display !== 'none' && !chatWindow.classList.contains('chat-window-transition-leave-active')) {
+          if (teaser) teaser.style.display = 'none';
+          if (badge) badge.style.display = 'none';
+
+          // Enhance Header with Sweta Gupta & Avatar
+          const header = chatWindow.querySelector('.chat-header');
+          if (header && !header.dataset.enhanced) {
+            header.dataset.enhanced = 'true';
+            const headingDiv = header.querySelector('.chat-heading');
+            const closeBtn = headingDiv?.querySelector('.chat-close-button');
+            const subP = header.querySelector('p');
+            if (subP) subP.style.display = 'none';
+
+            if (headingDiv) {
+              const brand = document.createElement('div');
+              brand.className = 'bonetech-header-brand';
+              brand.innerHTML = `
+                <div class="bonetech-header-left"> 
+                  <div class="bonetech-avatar-wrap"> 
+                    <div class="avatar-img">
+                      <img src="https://img.magnific.com/premium-photo/beautiful-happy-smiling-asian-young-girl-from-nepal-giving-several-gestures-formal-dress_723123-1927.jpg?semt=ais_hybrid&w=740&q=80" alt="Sweta Gupta" onerror="this.onerror=null; this.src='https://www.bonetechmedisys.com/favicon.ico';">
+                    </div>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="bonetech-header-titles">
+                    <h1>Sweta Gupta <span class="verified-badge" title="Verified Bonetech Specialist">✓</span></h1>
+                    <p>Advancing Movement, Advancing Life</p>
+                    <span class="bonetech-status-pill">● Online • Ready to Assist</span>
+                  </div>
+                </div>
+              `;
+              headingDiv.innerHTML = '';
+              headingDiv.appendChild(brand);
+              if (closeBtn) brand.appendChild(closeBtn);
+            }
+          }
+        }
+      });
+
+      observer.observe(wrapper, { childList: true, subtree: true, attributes: true });
+    }
+  }, 100);
+</script>
+
+  <!-- Device Switcher & Helpers -->
+  <script>
+    function setDeviceView(mode) {
+      const wrapper = document.getElementById('viewportWrapper');
+      const btns = document.querySelectorAll('.view-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      wrapper.classList.remove('tablet-view', 'mobile-view');
+
+      if (mode === 'desktop') {
+        document.getElementById('btnDesktopView').classList.add('active');
+      } else if (mode === 'tablet') {
+        document.getElementById('btnTabletView').classList.add('active');
+        wrapper.classList.add('tablet-view');
+      } else if (mode === 'mobile') {
+        document.getElementById('btnMobileView').classList.add('active');
+        wrapper.classList.add('mobile-view');
+      }
+    }
+
+    function triggerChatCategory(category) {
+      const toggle = document.querySelector('.chat-window-toggle');
+      if (toggle) toggle.click();
+
+      setTimeout(() => {
+        const textarea = document.querySelector('.chat-inputs textarea');
+        const sendBtn = document.querySelector('.chat-input-send-button');
+        if (textarea && sendBtn) {
+          textarea.value = `Tell me about Bonetech ${category} solutions and surgical catalog`;
+          textarea.dispatchEvent(new Event('input', { bubbles: true }));
+          setTimeout(() => sendBtn.click(), 100);
+        }
+      }, 350);
+    }
+
+    function openCodeModal() {
+      document.getElementById('codeModal').style.display = 'flex';
+    }
+
+    function closeCodeModal() {
+      document.getElementById('codeModal').style.display = 'none';
+    }
+
+    function copyEmbedCode() {
+      const text = document.getElementById('embedCodeSnippet').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied to Clipboard! ✓';
+        btn.style.background = '#10B981';
+        setTimeout(() => {
+          btn.textContent = 'Copy Snippet';
+          btn.style.background = '#0066FF';
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
