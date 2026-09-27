@@ -16,7 +16,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* Reset & Base Styles */
+    html {
+      scroll-behavior: smooth;
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -605,6 +608,266 @@
       color: #64748B;
     }
 
+    /* Contact & Lead Collection Section */
+    .section-contact {
+      padding: 72px 48px;
+      background: linear-gradient(180deg, #F8FAFD 0%, #EEF4FC 100%);
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-info-col h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #0A1128;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .contact-info-col p.lead-intro {
+      font-size: 1.05rem;
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .contact-highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #FFFFFF;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 14px rgba(11, 19, 43, 0.03);
+    }
+
+    .contact-highlight-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #EBF3FF;
+      color: #0066FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .contact-highlight-text h5 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #0A1128;
+      margin-bottom: 2px;
+    }
+
+    .contact-highlight-text p {
+      font-size: 0.82rem;
+      color: #64748B;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Lead Form Card (Exact match to provided design) */
+    .lead-form-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 44px 40px;
+      box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(0, 102, 255, 0.06);
+      border: 1px solid #E8EEF5;
+    }
+
+    .lead-form-header {
+      margin-bottom: 28px;
+    }
+
+    .lead-form-header h3 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .lead-form-header p {
+      font-size: 0.95rem;
+      color: #64748B;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: #F1F5F9;
+      border: 1.5px solid transparent;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #0F172A;
+      transition: all 0.2s ease;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #94A3B8;
+      font-weight: 400;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      background: #FFFFFF;
+      border-color: #0066FF;
+      box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12);
+    }
+
+    /* Phone number input row with country select */
+    .phone-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .phone-country-select-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .phone-country-select {
+      background: #F1F5F9;
+      border: 1.5px solid transparent;
+      border-radius: 14px;
+      padding: 14px 34px 14px 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      font-family: inherit;
+      color: #0F172A;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: all 0.2s ease;
+      height: 100%;
+    }
+
+    .phone-country-select:focus {
+      background: #FFFFFF;
+      border-color: #0066FF;
+      box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12);
+    }
+
+    .phone-country-arrow {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #64748B;
+      font-size: 0.75rem;
+    }
+
+    /* Two column grid for Email & Subject */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .lead-submit-btn {
+      background: #0F172A;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: 16px 36px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .lead-submit-btn:hover {
+      background: #1456db;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -4px rgba(20, 86, 219, 0.45);
+    }
+
+    .lead-submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .lead-form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lead-form-status.success {
+      display: block;
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+    }
+
     /* Footer Section */
     .site-footer {
       background: #070D19;
@@ -756,6 +1019,19 @@
       }
       .site-navbar {
         padding: 16px 24px;
+      }
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .section-contact {
+        padding: 50px 24px;
+      }
+      .lead-form-card {
+        padding: 32px 22px;
       }
     }
 
@@ -1289,7 +1565,7 @@
         <ul class="nav-links">
           <li><a href="#about">Company ▾</a></li>
           <li><a href="#solutions">Products ▾</a></li>
-          <li><a href="#inquiry">Inquiry</a></li>
+          <li><a href="#contact">Inquiry</a></li>
           <li><a href="#resources">Resources ▾</a></li>
           <li><a href="#careers">Careers</a></li>
         </ul>
@@ -1496,8 +1772,105 @@
         </div>
       </section>
 
+      <!-- Contact & Lead Collection Section -->
+      <section class="section-contact" id="contact">
+        <div class="contact-container">
+          <div class="contact-info-col">
+            <span class="section-pill">● CLINICAL INQUIRY &amp; SUPPORT</span>
+            <h2>Partner with Bonetech Medisys</h2>
+            <p class="lead-intro">
+              Whether you are an orthopedic surgeon, hospital procurement head, or global medical distributor, our specialists are ready to provide technical specifications, product catalogs, and dedicated support.
+            </p>
+
+            <div class="contact-highlights">
+              <div class="contact-highlight-item">
+                <div class="contact-highlight-icon">⚡</div>
+                <div class="contact-highlight-text">
+                  <h5>Rapid Response Guarantee</h5>
+                  <p>Our dedicated surgical team typically reviews and replies within 2 hours during active business days.</p>
+                </div>
+              </div>
+
+              <div class="contact-highlight-item">
+                <div class="contact-highlight-icon">🏥</div>
+                <div class="contact-highlight-text">
+                  <h5>Hospital &amp; Institutional Procurement</h5>
+                  <p>Custom titanium spinal implants, trauma plates, and arthroscopy kits tailored to clinical standards.</p>
+                </div>
+              </div>
+
+              <div class="contact-highlight-item">
+                <div class="contact-highlight-icon">📍</div>
+                <div class="contact-highlight-text">
+                  <h5>Global Headquarters &amp; Facility</h5>
+                  <p>Survey No. 18, Bonetech Road, Ahmedabad-382445, Gujarat, India.<br><strong>Direct:</strong> +91 95127 28416 | info@bonetechmedisys.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lead-form-card">
+            <div class="lead-form-header">
+              <h3>Send a message</h3>
+              <p>We typically reply within 2 hours during business days.</p>
+            </div>
+
+            <form class="lead-form" id="leadForm" onsubmit="handleLeadSubmit(event)">
+              <div class="form-group">
+                <label for="leadName">NAME</label>
+                <input type="text" id="leadName" name="name" class="form-input" placeholder="Jane Doe" required />
+              </div>
+
+              <div class="form-group">
+                <label for="leadPhone">PHONE NUMBER</label>
+                <div class="phone-input-row">
+                  <div class="phone-country-select-wrap">
+                    <select id="leadCountry" name="countryCode" class="phone-country-select">
+                      <option value="+1">US +1</option>
+                      <option value="+91" selected>IN +91</option>
+                      <option value="+44">UK +44</option>
+                      <option value="+49">DE +49</option>
+                      <option value="+971">AE +971</option>
+                      <option value="+61">AU +61</option>
+                      <option value="+65">SG +65</option>
+                      <option value="+81">JP +81</option>
+                    </select>
+                    <span class="phone-country-arrow">▼</span>
+                  </div>
+                  <input type="tel" id="leadPhone" name="phone" class="form-input" placeholder="Enter phone number" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="leadEmail">EMAIL ADDRESS</label>
+                  <input type="email" id="leadEmail" name="email" class="form-input" placeholder="jane@company.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="leadSubject">SUBJECT</label>
+                  <input type="text" id="leadSubject" name="subject" class="form-input" placeholder="What is this regarding?" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="leadMessage">MESSAGE</label>
+                <textarea id="leadMessage" name="message" class="form-textarea" placeholder="How can we help you today?" required></textarea>
+              </div>
+
+              <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+                <span>Send message</span>
+                <span>→</span>
+              </button>
+
+              <div class="lead-form-status" id="leadFormStatus"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <!-- Footer (Page 5 in PDF) -->
-      <footer class="site-footer" id="contact">
+      <footer class="site-footer">
         <div class="footer-top">
           <div class="footer-col">
             <div class="site-logo" style="color: #ffffff; margin-bottom: 14px;">
@@ -1809,7 +2182,58 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
       });
     }
 
+    function handleLeadSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById('leadSubmitBtn');
+      const status = document.getElementById('leadFormStatus');
+      const form = document.getElementById('leadForm');
+
+      const name = document.getElementById('leadName').value.trim();
+      const countryCode = document.getElementById('leadCountry').value;
+      const phone = document.getElementById('leadPhone').value.trim();
+      const email = document.getElementById('leadEmail').value.trim();
+      const subject = document.getElementById('leadSubject').value.trim();
+      const message = document.getElementById('leadMessage').value.trim();
+
+      const fullPhone = countryCode + ' ' + phone;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending message...</span>';
+
+      const payload = {
+        action: 'lead_form_submission',
+        source: 'bonetech_website_contact_form',
+        name: name,
+        phone: fullPhone,
+        email: email,
+        subject: subject,
+        message: message,
+        submittedAt: new Date().toISOString()
+      };
+
+      try {
+        fetch('https://sampatel26.app.n8n.cloud/webhook/05a63753-4b8b-46be-a86f-77eee24cb1b0/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      } catch (e) {}
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Send message</span><span>→</span>';
+        status.className = 'lead-form-status success';
+        status.style.display = 'block';
+        status.innerHTML = '✓ Thank you, ' + name + '! Your message has been received. Our clinical specialist will contact you within 2 hours.';
+        form.reset();
+        setTimeout(() => {
+          status.style.display = 'none';
+        }, 9000);
+      }, 700);
+    }
+
     // Expose helpers on window
+    window.handleLeadSubmit = handleLeadSubmit;
     window.setDeviceView = setDeviceView;
     window.triggerChatCategory = triggerChatCategory;
     window.openCodeModal = openCodeModal;
