@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>Bonetech Medisys | Precision Orthopedic & Spine Solutions</title>
   <meta name="description" content="Bonetech Medisys delivers precision-engineered orthopedic implant solutions across trauma, hip, spine, and arthroscopy." />
   <meta property="og:title" content="Bonetech Medisys | Precision Orthopedic & Spine Solutions" />
@@ -18,6 +18,11 @@
   <style>
     html {
       scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     *, *::before, *::after {
@@ -27,153 +32,88 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', 'Adelle Sans Devanagari Regular', 'Adelle Sans Devanagari', 'Adelle Sans', system-ui, -apple-system, sans-serif;
-      background-color: #F8FAFD;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #FFFFFF;
       color: #0F172A;
       line-height: 1.6;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Showcase Device Bar (For testing & demonstration) */
-    .showcase-topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10000;
-      background: #070D19;
-      color: #ffffff;
-      padding: 10px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(0, 102, 255, 0.25);
-      font-size: 0.85rem;
-    }
-
-    .showcase-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-    }
-
-    .showcase-badge {
-      background: #0066FF;
-      color: #ffffff;
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-
-    .showcase-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .view-btn {
-      background: rgba(255, 255, 255, 0.08);
-      color: #CBD5E1;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 6px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      font-family: inherit;
-    }
-
-    .view-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-    }
-
-    .view-btn.active {
-      background: #0066FF;
-      color: #ffffff;
-      border-color: #0066FF;
-      box-shadow: 0 0 14px rgba(0, 102, 255, 0.4);
-    }
-
-    .btn-code {
-      background: linear-gradient(135deg, #00D2FF 0%, #0066FF 100%);
-      color: #ffffff;
-      border: none;
-      padding: 6px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 0.8rem;
-      box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
-      transition: all 0.2s ease;
-      margin-left: 12px;
-      font-family: inherit;
-    }
-
-    .btn-code:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(0, 102, 255, 0.45);
-    }
-
-    /* Device Preview Frame Wrapper */
-    .viewport-frame-wrapper {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      transition: all 0.3s ease;
-      background: #EBF1F8;
-      padding: 0;
-    }
-
-    .viewport-frame-wrapper.tablet-view {
-      padding: 24px 0;
-    }
-
-    .viewport-frame-wrapper.tablet-view .site-container {
-      max-width: 768px;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-      overflow: hidden;
-      border: 4px solid #1E293B;
-    }
-
-    .viewport-frame-wrapper.mobile-view {
-      padding: 20px 0;
-    }
-
-    .viewport-frame-wrapper.mobile-view .site-container {
-      max-width: 390px;
-      border-radius: 36px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.22);
-      overflow: hidden;
-      border: 6px solid #0F172A;
+    img, svg, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     .site-container {
       width: 100%;
-      background: #ffffff;
-      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 100%;
+      overflow-x: hidden;
       position: relative;
+      background: #FFFFFF;
+      margin: 0 auto;
     }
 
     /* Website Header / Navbar */
     .site-navbar {
       background: #ffffff;
       border-bottom: 1px solid #E2E8F0;
-      padding: 16px 48px;
+      padding: 16px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .nav-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .mobile-nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: #0F172A;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-nav-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     .site-logo {
@@ -917,121 +857,335 @@
       font-size: 0.78rem;
     }
 
-    /* Modal for Embed Code */
-    .code-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(7, 13, 25, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 20000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+    /* ================================================================= */
+    /* COMPREHENSIVE RESPONSIVE DESIGN SYSTEM (Desktop, Tablet & Mobile) */
+    /* ================================================================= */
 
-    .code-modal {
-      background: #0B132B;
-      border: 1px solid rgba(0, 102, 255, 0.3);
-      border-radius: 20px;
-      max-width: 680px;
-      width: 100%;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      color: #ffffff;
-      padding: 28px;
-      position: relative;
-    }
-
-    .code-modal h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .code-modal p {
-      font-size: 0.85rem;
-      color: #94A3B8;
-      margin-bottom: 16px;
-    }
-
-    .code-box {
-      background: #070D19;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 16px;
-      font-family: monospace;
-      font-size: 0.82rem;
-      color: #E2E8F0;
-      overflow-x: auto;
-      max-height: 280px;
-      white-space: pre;
-      margin-bottom: 16px;
-    }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
-    .btn-copy {
-      background: #0066FF;
-      color: #ffffff;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .btn-close-modal {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    /* Responsive Queries for Demo Page */
-    @media (max-width: 900px) {
+    /* 1. Large Screens & Laptops (max-width: 1200px) */
+    @media (max-width: 1200px) {
+      .hero-section {
+        padding: 28px 32px;
+      }
       .hero-card {
-        grid-template-columns: 1fr;
-        padding: 40px 30px;
+        padding: 48px 40px;
+        gap: 32px;
       }
       .section-about {
-        grid-template-columns: 1fr;
-        padding: 40px 24px;
+        padding: 60px 32px;
+        gap: 40px;
       }
-      .solutions-grid, .test-grid {
-        grid-template-columns: 1fr;
+      .section-solutions,
+      .section-testimonials {
+        padding: 56px 32px;
       }
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
+      .section-contact {
+        padding: 60px 32px;
+      }
+      .site-footer {
+        padding: 50px 32px 24px 32px;
+      }
+    }
+
+    /* 2. Tablets & Small Laptops (max-width: 960px) */
+    @media (max-width: 960px) {
+      .site-navbar {
+        padding: 14px 24px;
+        position: relative;
+      }
+      .mobile-nav-toggle {
+        display: flex;
       }
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 24px 20px 24px;
+        border-bottom: 1px solid #E2E8F0;
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+        z-index: 999;
       }
-      .site-navbar {
-        padding: 16px 24px;
+      .nav-links.active {
+        display: flex;
       }
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #F1F5F9;
+      }
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+      .nav-links a {
+        padding: 14px 0;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+      }
+      
+      .hero-card {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+        text-align: left;
+      }
+      .hero-card h1 {
+        font-size: clamp(2.3rem, 7vw, 3.2rem);
+      }
+      .hero-visual {
+        margin-top: 16px;
+      }
+      .hero-visual img, .hero-visual .implant-fallback {
+        transform: rotate(-4deg);
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      
+      .section-about {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+        gap: 36px;
+      }
+      .section-title {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+      }
+      
+      .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .test-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
       .contact-container {
         grid-template-columns: 1fr;
         gap: 40px;
-      }
-      .form-grid-2 {
-        grid-template-columns: 1fr;
       }
       .section-contact {
         padding: 50px 24px;
       }
       .lead-form-card {
-        padding: 32px 22px;
+        padding: 36px 28px;
+      }
+      
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* 3. Mobile Devices (max-width: 680px) */
+    @media (max-width: 680px) {
+      .site-navbar {
+        padding: 12px 16px;
+      }
+      .site-logo {
+        font-size: 1.2rem;
+        gap: 8px;
+      }
+      .logo-icon-svg {
+        width: 28px;
+        height: 28px;
+      }
+      .btn-contact {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
+      
+      .hero-section {
+        padding: 16px 12px;
+      }
+      .hero-card {
+        padding: 28px 18px;
+        border-radius: 20px;
+        gap: 24px;
+      }
+      .hero-badge-pill {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        margin-bottom: 14px;
+      }
+      .hero-card h1 {
+        font-size: clamp(1.9rem, 8vw, 2.4rem);
+        line-height: 1.15;
+        margin-bottom: 14px;
+      }
+      .hero-card p {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
+      }
+      .hero-cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 0.88rem;
+      }
+      .hero-stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 28px;
+        padding-top: 20px;
+      }
+      .stat-item h3 {
+        font-size: 1.35rem;
+      }
+      .stat-item p {
+        font-size: 0.65rem;
+        letter-spacing: 0.04em;
+      }
+      .hero-visual img, .hero-visual .implant-fallback {
+        transform: none !important;
+        max-width: 240px;
+        margin: 0 auto;
+      }
+      .nex-badge {
+        bottom: -8px;
+        right: 8px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+      }
+      
+      .section-about {
+        padding: 40px 16px;
+      }
+      .section-title {
+        font-size: clamp(1.75rem, 7vw, 2.1rem);
+      }
+      .section-desc {
+        font-size: 0.92rem;
+      }
+      .about-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .about-stat-box h4 {
+        font-size: 1.5rem;
+      }
+      .vision-mission-cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .vm-card {
+        padding: 20px 16px;
+      }
+      
+      .section-solutions {
+        padding: 40px 16px;
+      }
+      .solutions-header {
+        margin-bottom: 28px;
+      }
+      .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .sol-card {
+        padding: 20px 18px;
+      }
+      
+      .section-testimonials {
+        padding: 40px 16px;
+      }
+      .test-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .test-card {
+        padding: 20px 18px;
+      }
+      
+      .section-contact {
+        padding: 40px 14px;
+      }
+      .contact-info-col h2 {
+        font-size: clamp(1.75rem, 7vw, 2.1rem);
+      }
+      .contact-info-col p.lead-intro {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
+      }
+      .contact-highlight-item {
+        padding: 14px 16px;
+      }
+      .contact-highlight-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .lead-form-card {
+        padding: 24px 16px;
+        border-radius: 20px;
+      }
+      .lead-form-header h3 {
+        font-size: 1.6rem;
+      }
+      .lead-form-header p {
+        font-size: 0.88rem;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .form-input, .form-textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+      }
+      .phone-country-select {
+        padding: 12px 28px 12px 10px;
+        font-size: 0.85rem;
+        border-radius: 12px;
+        max-width: 125px;
+      }
+      .lead-submit-btn {
+        padding: 14px 20px;
+        font-size: 0.92rem;
+      }
+      
+      .site-footer {
+        padding: 40px 16px 20px 16px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    /* 4. Ultra-Compact Mobile Screens (max-width: 375px) */
+    @media (max-width: 375px) {
+      .hero-card {
+        padding: 22px 12px;
+      }
+      .hero-stats-row {
+        gap: 4px;
+      }
+      .stat-item h3 {
+        font-size: 1.2rem;
+      }
+      .stat-item p {
+        font-size: 0.58rem;
+      }
+      .phone-country-select {
+        padding: 12px 22px 12px 8px;
+        font-size: 0.78rem;
+        max-width: 110px;
+      }
+      .phone-country-arrow {
+        right: 6px;
+        font-size: 0.65rem;
       }
     }
 
@@ -1575,56 +1729,41 @@
 </head>
 <body>
 
-  <!-- Top Showcase Device Bar -->
-  <header class="showcase-topbar">
-    <div class="showcase-brand">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00D2FF" stroke-width="2"/>
-        <path d="M2 17L12 22L22 17" stroke="#0066FF" stroke-width="2"/>
-        <path d="M2 12L12 17L22 12" stroke="#0066FF" stroke-width="2"/>
-      </svg>
-      <span>Bonetech Medisys • AI Chatbot Integration</span>
-      <span class="showcase-badge">Desktop, Tablet & Mobile Ready</span>
-    </div>
+  <div class="site-container">
     
-    <div class="showcase-controls">
-      <button class="view-btn active" id="btnDesktopView" onclick="setDeviceView('desktop')">🖥️ Desktop</button>
-      <button class="view-btn" id="btnTabletView" onclick="setDeviceView('tablet')">💻 Tablet (768px)</button>
-      <button class="view-btn" id="btnMobileView" onclick="setDeviceView('mobile')">📱 Mobile (390px)</button>
-      <button class="btn-code" onclick="openCodeModal()">📋 Get Embed Code</button>
-    </div>
-  </header>
+    <!-- Website Navigation Bar -->
+    <nav class="site-navbar">
+      <a href="#" class="site-logo">
+        <!-- Medical Atom Cross Logo -->
+        <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="10" fill="#0066FF"/>
+          <path d="M18 8V28M8 18H28" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="4" fill="#00D2FF"/>
+          <circle cx="18" cy="10" r="2" fill="#ffffff"/>
+          <circle cx="18" cy="26" r="2" fill="#ffffff"/>
+          <circle cx="10" cy="18" r="2" fill="#ffffff"/>
+          <circle cx="26" cy="18" r="2" fill="#ffffff"/>
+        </svg>
+        <span>Bonetech</span>
+      </a>
 
-  <!-- Viewport Frame Wrapper -->
-  <div class="viewport-frame-wrapper" id="viewportWrapper">
-    <div class="site-container">
-      
-      <!-- Website Navigation Bar -->
-      <nav class="site-navbar">
-        <a href="#" class="site-logo">
-          <!-- Medical Atom Cross Logo -->
-          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="10" fill="#0066FF"/>
-            <path d="M18 8V28M8 18H28" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="18" cy="18" r="4" fill="#00D2FF"/>
-            <circle cx="18" cy="10" r="2" fill="#ffffff"/>
-            <circle cx="18" cy="26" r="2" fill="#ffffff"/>
-            <circle cx="10" cy="18" r="2" fill="#ffffff"/>
-            <circle cx="26" cy="18" r="2" fill="#ffffff"/>
-          </svg>
-          <span>Bonetech</span>
-        </a>
+      <ul class="nav-links">
+        <li><a href="#about">Company ▾</a></li>
+        <li><a href="#solutions">Products ▾</a></li>
+        <li><a href="#contact">Inquiry</a></li>
+        <li><a href="#resources">Resources ▾</a></li>
+        <li><a href="#careers">Careers</a></li>
+      </ul>
 
-        <ul class="nav-links">
-          <li><a href="#about">Company ▾</a></li>
-          <li><a href="#solutions">Products ▾</a></li>
-          <li><a href="#contact">Inquiry</a></li>
-          <li><a href="#resources">Resources ▾</a></li>
-          <li><a href="#careers">Careers</a></li>
-        </ul>
-
+      <div class="nav-cta-group">
         <a href="#contact" class="btn-contact">CONTACT US →</a>
-      </nav>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
 
       <!-- Hero Section (Page 1 in PDF) -->
       <section class="hero-section">
@@ -1979,64 +2118,6 @@
       </footer>
 
     </div>
-  </div>
-
-  <!-- Embed Code Modal -->
-  <div class="code-modal-backdrop" id="codeModal">
-    <div class="code-modal">
-      <h3>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D2FF" stroke-width="2">
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-        Ready-to-Use Chatbot Embed Code
-      </h3>
-      <p>Copy and paste this single snippet into your website before the closing <code>&lt;/body&gt;</code> tag:</p>
-
-      <pre class="code-box" id="embedCodeSnippet">&lt;!-- Google Font --&gt;
-&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
-&lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" /&gt;
-
-&lt;!-- n8n Chat CSS --&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" /&gt;
-
-&lt;!-- Chatbot Styles --&gt;
-&lt;style&gt;
-/* Bonetech Design System &amp; Chatbot Styles */
-...
-&lt;/style&gt;
-
-&lt;!-- n8n Chat Initialization --&gt;
-&lt;script type="module"&gt;
-  import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
-
-  createChat({
-    webhookUrl: "https://sampatel26.app.n8n.cloud/webhook/05a63753-4b8b-46be-a86f-77eee24cb1b0/chat",
-    mode: "window",
-    loadPreviousSession: true,
-    showWelcomeScreen: false,
-    defaultLanguage: "en",
-    initialMessages: ["Hi there! 👋"],
-    i18n: {
-      en: {
-        title: "Sweta Gupta",
-        subtitle: "Advancing Movement, Advancing Life",
-        inputPlaceholder: "Type your message here...",
-        footer: "Bonetech Medisys",
-        getStarted: "Start Chat",
-        closeButtonTooltip: "Close Chat"
-      }
-    }
-  });
-&lt;/script&gt;</pre>
-
-      <div class="modal-actions">
-        <button class="btn-close-modal" onclick="closeCodeModal()">Close</button>
-        <button class="btn-copy" id="copyBtn" onclick="copyEmbedCode()">Copy Snippet</button>
-      </div>
-    </div>
-  </div>
 
   <div id="root"></div>
 
@@ -2207,25 +2288,30 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
   }, 100);
   </script>
 
-  <!-- Device Switcher & Helpers -->
+  <!-- Website Navigation & Interactive Helpers -->
   <script>
-    function setDeviceView(mode) {
-      const wrapper = document.getElementById('viewportWrapper');
-      const btns = document.querySelectorAll('.view-btn');
-      btns.forEach(b => b.classList.remove('active'));
-
-      wrapper.classList.remove('tablet-view', 'mobile-view');
-
-      if (mode === 'desktop') {
-        document.getElementById('btnDesktopView').classList.add('active');
-      } else if (mode === 'tablet') {
-        document.getElementById('btnTabletView').classList.add('active');
-        wrapper.classList.add('tablet-view');
-      } else if (mode === 'mobile') {
-        document.getElementById('btnMobileView').classList.add('active');
-        wrapper.classList.add('mobile-view');
+    function toggleMobileNav() {
+      const nav = document.querySelector('.nav-links');
+      const toggle = document.getElementById('mobileNavToggle');
+      if (nav && toggle) {
+        nav.classList.toggle('active');
+        toggle.classList.toggle('active');
       }
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(l => {
+        l.addEventListener('click', () => {
+          const nav = document.querySelector('.nav-links');
+          const toggle = document.getElementById('mobileNavToggle');
+          if (nav && toggle) {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+          }
+        });
+      });
+    });
 
     function triggerChatCategory(category) {
       const toggle = document.querySelector('.chat-window-toggle');
@@ -2240,27 +2326,6 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
           setTimeout(() => sendBtn.click(), 100);
         }
       }, 350);
-    }
-
-    function openCodeModal() {
-      document.getElementById('codeModal').style.display = 'flex';
-    }
-
-    function closeCodeModal() {
-      document.getElementById('codeModal').style.display = 'none';
-    }
-
-    function copyEmbedCode() {
-      const text = document.getElementById('embedCodeSnippet').innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copyBtn');
-        btn.textContent = 'Copied to Clipboard! ✓';
-        btn.style.background = '#10B981';
-        setTimeout(() => {
-          btn.textContent = 'Copy Snippet';
-          btn.style.background = '#0066FF';
-        }, 2500);
-      });
     }
 
     function handleLeadSubmit(event) {
@@ -2314,12 +2379,9 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
     }
 
     // Expose helpers on window
+    window.toggleMobileNav = toggleMobileNav;
     window.handleLeadSubmit = handleLeadSubmit;
-    window.setDeviceView = setDeviceView;
     window.triggerChatCategory = triggerChatCategory;
-    window.openCodeModal = openCodeModal;
-    window.closeCodeModal = closeCodeModal;
-    window.copyEmbedCode = copyEmbedCode;
   </script>
 
   <script type="module" src="/src/main.tsx"></script>
