@@ -37,7 +37,7 @@
     /* Desktop Window Geometry */
     --chat--window--width: 410px;
     --chat--window--height: 640px;
-    --chat--window--bottom: 48px;
+    --chat--window--bottom: 24px;
     --chat--window--right: 24px;
     --chat--window--z-index: 999999;
     --chat--window--border: 1px solid rgba(0, 102, 255, 0.15);
@@ -63,8 +63,8 @@
 
     /* Floating Launcher Button */
     --chat--toggle--size: 62px;
-    --chat--toggle--background: #184ece;
-    --chat--toggle--hover--background: #184ece;
+    --chat--toggle--background: linear-gradient(135deg, #0066FF 0%, #004ECC 100%);
+    --chat--toggle--hover--background: linear-gradient(135deg, #0075FF 0%, #0056E0 100%);
     --chat--toggle--color: #ffffff;
 
     /* Input & Footer */
@@ -77,20 +77,15 @@
 
   /* --- Launcher Button Pulse & Glow --- */
   .chat-window-wrapper .chat-window-toggle {
-    background: #184ece !important;
-    box-shadow: none !important;
+    box-shadow: 0 10px 25px -4px rgba(0, 102, 255, 0.45) !important;
     position: relative !important;
-    /* MOVE BUTTON UP */
-    transform: translateY(-10px) !important;
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease !important;
     animation: bonetechPulse 3s infinite !important;
   }
 
   .chat-window-wrapper .chat-window-toggle:hover {
-    background: #184ece !important;
-    /* KEEP IT UP + HOVER EFFECT */
-    transform: translateY(-10px) scale(1.08) !important;
-    box-shadow: none !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 14px 30px -4px rgba(0, 102, 255, 0.6) !important;
   }
 
   @keyframes bonetechPulse {
@@ -129,7 +124,7 @@
   /* --- Floating Teaser Pill --- */
   .bonetech-teaser-pill {
     position: absolute;
-    bottom: 22px;
+    bottom: 12px;
     right: 76px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 102, 255, 0.18);
@@ -221,6 +216,7 @@
 
   /* --- Header Custom Clinical Layout --- */
   .chat-layout .chat-header {
+    position: relative !important;
     background: linear-gradient(135deg, #070D19 0%, #0E1B36 55%, #004ECC 100%) !important;
     padding: 18px 20px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -335,6 +331,59 @@
     background: rgba(255, 255, 255, 0.3) !important;
   }
 
+  /* --- Dedicated Close Button: Desktop + Mobile --- */
+  .bonetech-custom-close {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 9999999 !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 23px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+
+  .bonetech-custom-close::before {
+    content: "×" !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    transform: translateY(-1px);
+  }
+
+  .bonetech-custom-close:hover {
+    background: rgba(255, 255, 255, 0.28) !important;
+    transform: scale(1.05) !important;
+  }
+
+  @media (max-width: 640px) {
+    .bonetech-custom-close {
+      top: 12px !important;
+      right: 12px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      min-height: 30px !important;
+      font-size: 22px !important;
+    }
+  }
+
   /* --- Messages Styling --- */
   .chat-body {
     background: #F4F7FC !important;
@@ -344,8 +393,8 @@
     background: #FFFFFF !important;
     border: 1px solid #E2E8F0 !important;
     border-radius: 18px 18px 18px 4px !important;
-    box-shadow: none !important;
-    max-width: 85% !important;
+    box-shadow: 0 4px 14px -2px rgba(11, 19, 43, 0.05) !important;
+    max-width: 88% !important;
   }
 
   .chat-message-from-user {
@@ -353,7 +402,7 @@
     color: #FFFFFF !important;
     border-radius: 18px 18px 4px 18px !important;
     max-width: 85% !important;
-    box-shadow: none !important;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25) !important;
   }
 
   /* --- Modern Input Box & Send Button --- */
@@ -414,7 +463,7 @@
     }
 
     .chat-window-wrapper {
-      bottom: 32px !important;
+      bottom: 16px !important;
       right: 16px !important;
       max-width: 100% !important;
       max-height: 100% !important;
@@ -558,7 +607,35 @@
               `;
               headingDiv.innerHTML = '';
               headingDiv.appendChild(brand);
-              if (closeBtn) brand.appendChild(closeBtn);
+
+              // Add a dedicated close button in the top-right corner.
+              // It triggers n8n's native close button, preserving all chat behavior.
+              if (!header.querySelector('.bonetech-custom-close')) {
+                const customClose = document.createElement('button');
+                customClose.type = 'button';
+                customClose.className = 'bonetech-custom-close';
+                customClose.setAttribute('aria-label', 'Close Chat');
+                customClose.setAttribute('title', 'Close Chat');
+
+                customClose.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+
+                  if (closeBtn) {
+                    closeBtn.click();
+                  } else if (toggleBtn) {
+                    toggleBtn.click();
+                  }
+                });
+
+                header.appendChild(customClose);
+              }
+
+              // Keep the original n8n close button available for functionality,
+              // but hide it visually so only the new top-right button is shown.
+              if (closeBtn) {
+                closeBtn.style.display = 'none';
+              }
             }
           }
         }

@@ -1401,6 +1401,59 @@
     background: rgba(255, 255, 255, 0.3) !important;
   }
 
+  /* --- Dedicated Close Button: Desktop + Mobile --- */
+  .bonetech-custom-close {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 9999999 !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 23px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+
+  .bonetech-custom-close::before {
+    content: "×" !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    transform: translateY(-1px);
+  }
+
+  .bonetech-custom-close:hover {
+    background: rgba(255, 255, 255, 0.28) !important;
+    transform: scale(1.05) !important;
+  }
+
+  @media (max-width: 640px) {
+    .bonetech-custom-close {
+      top: 12px !important;
+      right: 12px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      min-height: 30px !important;
+      font-size: 22px !important;
+    }
+  }
+
   /* --- Messages Styling --- */
   .chat-body {
     background: #F4F7FC !important;
@@ -2112,7 +2165,35 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
               `;
               headingDiv.innerHTML = '';
               headingDiv.appendChild(brand);
-              if (closeBtn) brand.appendChild(closeBtn);
+
+              // Add a dedicated close button in the top-right corner.
+              // It triggers n8n's native close button, preserving all chat behavior.
+              if (!header.querySelector('.bonetech-custom-close')) {
+                const customClose = document.createElement('button');
+                customClose.type = 'button';
+                customClose.className = 'bonetech-custom-close';
+                customClose.setAttribute('aria-label', 'Close Chat');
+                customClose.setAttribute('title', 'Close Chat');
+
+                customClose.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+
+                  if (closeBtn) {
+                    closeBtn.click();
+                  } else if (toggleBtn) {
+                    toggleBtn.click();
+                  }
+                });
+
+                header.appendChild(customClose);
+              }
+
+              // Keep the original n8n close button available for functionality,
+              // but hide it visually so only the new top-right button is shown.
+              if (closeBtn) {
+                closeBtn.style.display = 'none';
+              }
             }
           }
         }
