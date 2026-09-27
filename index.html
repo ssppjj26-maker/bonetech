@@ -2212,11 +2212,11 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
       };
 
       try {
-        fetch('https://sampatel26.app.n8n.cloud/webhook/05a63753-4b8b-46be-a86f-77eee24cb1b0/chat', {
+        fetch('https://sampatel26.app.n8n.cloud/webhook/70a1ac17-27dd-4f43-9d4c-d2cab5764726', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
-        }).catch(() => {});
+        }).catch((err) => console.warn('Webhook notification logged:', err));
       } catch (e) {}
 
       setTimeout(() => {
